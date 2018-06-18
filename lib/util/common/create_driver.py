@@ -6,7 +6,7 @@ def get_browser_instance():
     env = pytest.config.option.env
     if env == "remote":
         if browser_type == "firefox":
-            browser = Firefox("e:/geckodriver.exe")
+            browser = Firefox()
         elif browser_type == "chrome":
             browser = Chrome("e:/chromedriver.exe")
     browser.maximize_window()
