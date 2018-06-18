@@ -6,9 +6,11 @@ def get_browser_instance():
     env = pytest.config.option.env
     if env == "remote":
         if browser_type == "firefox":
-            browser = Firefox()
+            browser = Firefox(executable_path='e:/geckodriver.exe')
         elif browser_type == "chrome":
             browser = Chrome("e:/chromedriver.exe")
+        elif browser_type == "Ie":
+            browser = Ie("e:/IEDriverServer.exe")            
     browser.maximize_window()
     browser.implicitly_wait(30)
     browser.get("https://us.castlighthealth.com")
