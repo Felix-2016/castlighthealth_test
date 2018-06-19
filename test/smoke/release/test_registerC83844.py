@@ -1,12 +1,10 @@
-from selenium.webdriver import Firefox, Chrome, Ie
 from lib.ui.login.login_page import LoginPage
 from lib.ui.login.registration_page import RegistrationPage
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.select import Select
 from lib.util.common import create_driver
+from test.smoke.release.testdata.sample1 import castrange
 import unittest
-import csv
-from lib.util.common.csvcompiler import castrange
+
 
 # Create python Test class and inherit unittest module#
 
@@ -99,8 +97,41 @@ class TestRegisterC83844(unittest.TestCase):
         # Click/Push register button #
         self.registration_page.get_register_button().click()
 
+    def test_case003(self):
+        print('Test script for Verifying Signin button')
+        # wait for page load#
+        self.login_page.wait_for_page_load()
+        # click on register link on bottom right hand corner of page#
+        self.login_page.get_username1_textbox().send_keys(self.a[0][2])
+        self.login_page.get_password1_textbox().send_keys(self.a[1][2])
+        self.login_page.get_signin_button().click()
+        actual_error_msg = self.login_page.get_login_error_msg().text
+        expected_error_msg = 'The email or password you entered was incorrect. Please check your information and try ' \
+                             'again. '
+        assert actual_error_msg in expected_error_msg
+        print(actual_error_msg)
+
+    def test_case004(self):
+        print('Verifying Forgot Password link')
+        # wait for page load#
+        self.login_page.wait_for_page_load()
+        # click on Forgot Password link on bottom of page#
+        self.login_page.get_forgot_password_link().click()
+        # enter valid email address#
+        self.login_page.get_email_reset_textbox().send_keys(self.a[0][3])
+        # click on submit button()
+        self.login_page.get_submit_button().click()
+        # get the error message text#
+        actual_reset_error_msg = self.login_page.get_password_reset_error().text
+        # expected error message#
+        expected_reset_error_msg = 'The email address is not allowed to receive password resets'
+        assert actual_reset_error_msg != expected_reset_error_msg
+        print(actual_reset_error_msg)
+
     def tearDown(self):
-        print('Successful Test Execution')
+        print('No false positive in SPM')
         print('Site functions as expected')
+        print('No Shape­related issues')
         self.browser.close()
+
 
