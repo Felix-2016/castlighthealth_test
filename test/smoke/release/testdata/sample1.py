@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-def testrange():
+def castrange():
         with open('C:/Users/Anitha/Desktop/sample.csv') as csvfile:
             readCSV = csv.reader(csvfile, delimiter=',')
             email = []
