@@ -8,11 +8,11 @@ def get_browser_instance():
 
     if env == "remote":
         if browser_type == "firefox":
-            browser = Firefox(executable_path='e:/geckodriver.exe')
+            browser = Firefox(executable_path='C:/geckodriver.exe')
         elif browser_type == "chrome":
-            browser = Chrome("e:/chromedriver.exe")
+            browser = Chrome(executable_path='C:/chromedriver.exe')
         elif browser_type == "Ie":
-            browser = Ie("e:/IEDriverServer.exe")
+            browser = Ie(executable_path='C:/IEDriverServer.exe')
     browser.maximize_window()
     browser.implicitly_wait(30)
     browser.get("https://us.castlighthealth.com")
