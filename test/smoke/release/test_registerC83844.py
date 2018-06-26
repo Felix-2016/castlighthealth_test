@@ -4,6 +4,8 @@ from selenium.webdriver.support.select import Select
 from lib.util.common import create_driver
 from test.smoke.release.testdata.sample1 import castrange
 import unittest
+import allure
+import pytest
 
 
 # Create python Test class and inherit unittest module#
@@ -19,6 +21,8 @@ class TestRegisterC83844(unittest.TestCase):
         self.registration_page = RegistrationPage(self.browser)
         self.a = castrange()
 
+    @allure.feature('Feature1')
+    @allure.story('Story1')
     def test_case001(self):
         # wait for page load#
         self.login_page.wait_for_page_load()
@@ -58,6 +62,8 @@ class TestRegisterC83844(unittest.TestCase):
         # Click/Push register button #
         self.registration_page.get_register_button().click()
 
+    @allure.feature('Feature2')
+    @allure.story('story2')
     def test_case002(self):
         # wait for page load#
         self.login_page.wait_for_page_load()
@@ -97,6 +103,8 @@ class TestRegisterC83844(unittest.TestCase):
         # Click/Push register button #
         self.registration_page.get_register_button().click()
 
+    @allure.feature('Feature3')
+    @allure.story('Story3')
     def test_case003(self):
         print('Test script for Verifying Signin button')
         # wait for page load#
@@ -111,6 +119,8 @@ class TestRegisterC83844(unittest.TestCase):
         assert actual_error_msg in expected_error_msg
         print(actual_error_msg)
 
+    @allure.feature('Feature4')
+    @allure.story('Story4')
     def test_case004(self):
         print('Verifying Forgot Password link')
         # wait for page load#
@@ -133,5 +143,7 @@ class TestRegisterC83844(unittest.TestCase):
         print('Site functions as expected')
         print('No Shape­related issues')
         self.browser.close()
+
+
 
 
