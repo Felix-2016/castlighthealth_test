@@ -4,11 +4,11 @@ from selenium.webdriver.support.select import Select
 
 
 class RegistrationPage():
-    def __init__(self,browser):
+    def __init__(self, browser):
         self.browser = browser
 
     def wait_for_registration_page_to_load(self):
-        wait = WebDriverWait(self.browser,30)
+        wait = WebDriverWait(self.browser, 30)
         wait.until(expected_conditions.title_contains('Castlight - Registration'))
 
     def get_email_textbox(self):
@@ -40,7 +40,6 @@ class RegistrationPage():
             return self.browser.find_element_by_id("lastName")
         except:
             return None
-
 
     def get_day_ddl(self):
         try:
@@ -83,8 +82,3 @@ class RegistrationPage():
             return self.browser.find_element_by_xpath("//button[@type='submit']")
         except:
             return None
-
-
-
-
-
