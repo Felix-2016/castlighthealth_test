@@ -11,9 +11,9 @@ def get_browser_instance():
 
     if env == "remote":
         if browser_type == "firefox":
-            browser = Firefox(executable_path='e:/geckodriver.exe')
+            browser = Firefox(executable_path='d:/geckodriver.exe')
         elif browser_type == "chrome":
-            browser = Chrome(executable_path='e:/chromedriver.exe')
+            browser = Chrome(executable_path='D:/pyt/chromedriver.exe')
         elif browser_type == "Ie":
             browser = Ie(executable_path='e:/IEDriverServer.exe')
     browser.maximize_window()
