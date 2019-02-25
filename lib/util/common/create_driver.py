@@ -3,6 +3,7 @@ import pytest
 
 # url= "https://us.castlighthealth.com/"
 
+
 def get_browser_instance():
     browser_type = pytest.config.option.browser
     env = pytest.config.option.env
