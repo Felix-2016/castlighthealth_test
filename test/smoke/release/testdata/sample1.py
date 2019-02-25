@@ -5,7 +5,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 def castrange():
-        with open('C:/Users/Anitha/Desktop/sample.csv') as csvfile:
+        with open('C:/Users/Felix/Desktop/sample.csv') as csvfile:
             readCSV = csv.reader(csvfile, delimiter=',')
             email = []
             mobile = []
